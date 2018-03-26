@@ -1,0 +1,53 @@
+{% extends "portal/base.html" %}
+
+
+{% block header %}
+<div class="navbar container">  
+    <div class="navbar-inner">  
+       	<div class="container-fluid">
+        <div class="btn-group pull-right">
+        	<a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="#">{{applicant.email}} 
+        	<span class="caret"></span></a>
+        	<ul class="dropdown-menu">
+            	<li><a href="/portal/edit_application/"><i class="glyphicon glyphicon-pencil"></i> Edit Application </a></li>
+            	<li><a href="/portal/logout/"><i class="glyphicon glyphicon-log-out"></i> Logout </a></li>
+        	</ul>
+        </div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+ <section>
+ 	Hello! <b>{{applicant.first_name}} {{applicant.last_name}}</b>
+
+ 	<br/>
+ 	<p>The status of your application is <b>{{applicant.application_status}}</b></p>
+ </section>
+
+ <hr>
+
+ <section>
+ 	<h3>Application Details</h3>
+ 	<br/>
+ 	<table class="table table-striped table-condensed table-bordered">
+	<tbody>
+		<tr><th>Application Id</th><td>{{ applicant.id }}</td></tr>
+		<tr><th>First Name</th><td>{{ applicant.first_name }}</td></tr>
+		<tr><th>Last Name</th><td>{{ applicant.last_name }}</td></tr>
+		<tr><th>Email</th><td>{{ applicant.email}}</td></tr>
+		<tr><th>Phone </th><td>{{ applicant.phone }}</td></tr>
+		<tr><th>City</th><td>{{ applicant.city }}</td></tr>
+		<tr><th>State</th><td>{{ applicant.state }}</td></tr>
+		<tr><th>Zipcode</th><td>{{ applicant.zipcode }}</td></tr>
+		<tr><th>Application Status</th><td>{{ applicant.application_status }}</td></tr>
+	</tbody>
+	</table>
+ </section>	
+</div>
+
+
+{% endblock %}

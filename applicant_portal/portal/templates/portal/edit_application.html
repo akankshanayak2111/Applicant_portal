@@ -1,0 +1,107 @@
+{% extends "portal/base.html" %}
+
+
+{% block header %}
+<div class="navbar container">  
+    <div class="navbar-inner">  
+       	<div class="container-fluid">
+        <div class="btn-group pull-right">
+        	<a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="#">{{applicant.email}} 
+        	<span class="caret"></span></a>
+        	<ul class="dropdown-menu">
+            	<li><a href="/potal/edit_application/"><i class="glyphicon glyphicon-pencil"></i> Edit Application </a></li>
+            	<li><a href="/portal/logout/"><i class="glyphicon glyphicon-log-out"></i> Logout </a></li>
+        	</ul>
+        </div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+<section>
+	Hello! <b>{{applicant.first_name}} {{applicant.last_name}}</b>
+	<br/>
+	
+	<p>The status of your application is <b>{{applicant.application_status}}</b></p>
+</section>
+
+<hr>
+
+<div>
+
+	<form class="form-horizontal" id="applicant_form" method="post" action="/portal/update_application/" 
+			role="form" enctype="multipart/form-data" onsubmit="validate_form()">
+    {% csrf_token %}
+	
+	<div class="control-group">  
+        <label class="control-label" for="first-name">First Name</label>  
+            <div class="controls">  
+                <input size="50" type="text" id="first-name" name="first-name" value="{{ applicant.first_name }}" required>  
+            </div>  
+    </div>
+		
+
+	<div class="control-group">  
+        <label class="control-label" for="last-name">Last Name</label>  
+            <div class="controls">  
+                <input size="50" type="text" id="last-name" name="last-name" value="{{ applicant.last_name }}" required>  
+            </div>  
+    </div>
+
+    <div class="control-group">  
+        <label class="control-label" for="email">Email</label>  
+            <div class="controls">  
+                <input size="50" type="email" id="email" name="email" value="{{ applicant.email }}" required readonly>  
+            </div>  
+    </div>
+
+    <div class="control-group">  
+        <label class="control-label" for="phone">Phone</label>  
+            <div class="controls">  
+                <input size="50" type="text" id="phone" name="phone" value="{{ applicant.phone }}" pattern="[1-9][0-9]{9}" required>  
+            </div>  
+    </div>
+
+    <div class="control-group">  
+        <label class="control-label" for="city">City</label>  
+            <div class="controls">  
+                <input size="50" type="text" id="city" name="city" value="{{ applicant.city }}" required>  
+            </div>  
+    </div>
+
+    <div class="control-group">  
+        <label class="control-label" for="state">State</label>  
+            <div class="controls">  
+                <input size="50" type="text" id="state" name="state" value="{{ applicant.state }}" required>  
+            </div>  
+    </div>
+
+    <div class="control-group">  
+        <label class="control-label" for="zipcode">Zipcode</label>  
+            <div class="controls">  
+                <input size="50" type="text" id="zipcode" name="zipcode" value="{{ applicant.zipcode }}" 
+                pattern="(\d{5}([\-]\d{4})?)" required>  
+            </div>  
+    </div>
+
+	<div class="form-actions">  
+        <button size="30" id="applicant_submit" type="submit" class="btn btn-success">Edit Application</button>  
+    </div>  
+
+
+	</form>
+
+	
+
+
+</div>
+	
+
+</div>
+{% endblock %}
+

@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>Applicant Portal</title>   
+		<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="shortcut icon" type="image/png" 
+		href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.svg">
+	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+	    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	
+	<body>
+		<header class="header">
+			<div class="modal-header container">
+				<div class="span3"></div>
+				<h3><a href="/portal/">Applicant Portal</a></h3>
+			</div>
+		</header>
+		
+		{% if messages %}
+			<div class="row container">
+			<div>
+				{% for message in messages %}
+					<div class="alert">
+					<a href="#" class="close" data-dismiss="alert">&times;</a>				        
+				        {{ message }}
+					</div>
+				{% endfor %}
+			</div>
+			</div>
+		{% endif %}
+
+	{% block header %}{% endblock %}
+    {% block content %}{% endblock %}
+	</body>
+</html>
