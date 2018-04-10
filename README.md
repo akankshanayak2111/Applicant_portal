@@ -1,4 +1,4 @@
-## Applicant_portal
+## Applicant Portal
 This is an App that allows applicants to register and submit an application for a fictional business. 
 
 ## Technical Stack
