@@ -1,4 +1,4 @@
-env
+applicant_portal/env
 *pyc
 *secrets
 *.sh
