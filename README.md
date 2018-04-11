@@ -27,5 +27,5 @@ The landing page of the application can then be accessed at the URL:
 * Backend validation errors are communicated via Django's message support.
 
 
-## TODO
+## To Do
 1. Add unit tests
